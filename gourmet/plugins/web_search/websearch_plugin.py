@@ -1,10 +1,10 @@
 from gourmet.plugin import MainPlugin
+from websearch_tab import WebSearchTab
 import gtk
-import websearch_index
 
 class WebSearchPlugin (MainPlugin):
 
 	def activate(self, pluggable):
 		MainPlugin.activate(self, pluggable)
-		self.browser = browser.WebSearchIndex(pluggable.rd)
-        self.add_tab(self.browser,'Web Recipe Search')
+		self.browser = WebSearchTab(pluggable.rd)
+		self.add_tab(self.browser,'Web Recipe Search')

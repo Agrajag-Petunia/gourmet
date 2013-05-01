@@ -1,6 +1,7 @@
 from scrapy.spider import BaseSpider
 from scrapy.selector import HtmlXPathSelector
 from scrapy.http.request import Request
+from recipespiders.items import AllRecipesItem
 
 class RecipesSpider(BaseSpider):
 	DOWNLOAD_DELAY = 2
@@ -10,7 +11,7 @@ class RecipesSpider(BaseSpider):
 	count = 0
 	threshold = 20
 	
-	def __init(self, key=None, num_recipes=None):
+	def __init__(self, key=None, num_recipes=None):
 		if key is not None:
 			self.start_urls = ['http://allrecipes.com/recipes/Search.aspx?WithTerm=%s' % key]
 
@@ -36,7 +37,7 @@ class RecipesSpider(BaseSpider):
 
 	def parse_recipe(self, response):
 		hxs = HtmlXPathSelector(response)
-		recipe = RecipeItem()
+		recipe = AllRecipesItem()
 		
 		name = hxs.select("//div[@class='detail-right fl-right']/h1/text()").extract()
 		srvs = hxs.select("//span[@id='lblYield']/text()").extract()
