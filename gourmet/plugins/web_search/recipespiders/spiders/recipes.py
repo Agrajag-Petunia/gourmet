@@ -52,7 +52,7 @@ class RecipesSpider(BaseSpider):
 		#print 'Serves: %s' % srvs
 		for ingred in ingreds:
 			args = (ingred.select(".//span[@class='ingredient-amount']/text()").extract(), ingred.select(".//span[@class='ingredient-name']/text()").extract())
-			ingredient = '%s - %s' % args
+			ingredient = '%s - %s' % (args[0][0], args[1][0])
 			ingredients.append(ingredient)
 			#print '%s' % ingredient
 			
@@ -62,8 +62,8 @@ class RecipesSpider(BaseSpider):
 			directions.append(direction)
 			#print '%s' % direction
 			
-		recipe['name'] = name
-		recipe['servings'] = srvs
+		recipe['name'] = name[0]
+		recipe['servings'] = srvs[0]
 		recipe['ingredients'] = ingredients
 		recipe['directions'] = directions
 		

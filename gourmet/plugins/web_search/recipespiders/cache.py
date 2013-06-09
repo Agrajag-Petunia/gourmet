@@ -34,7 +34,7 @@ class Storage:
 	
 	return self.Session()
 
-    def destroy(self)
+    def destroy(self):
 	Base.metadata.drop_all(bind=self.engine)
 	os.remove('recipespider.db')
 

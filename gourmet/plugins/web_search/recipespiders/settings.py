@@ -2,6 +2,6 @@
 
 SPIDER_MODULES = ['recipespiders.spiders']
 NEWSPIDER_MODULE = 'recipespiders.spiders'
-DEFAULT_ITEM_CLASS = 'recipespiders.items.Website'
+DEFAULT_ITEM_CLASS = 'recipespiders.items.AllRecipeItems'
 
-ITEM_PIPELINES = ['recipespiders.pipelines.FilterWordsPipeline']
+ITEM_PIPELINES = ['recipespiders.pipelines.CachingPipeline']

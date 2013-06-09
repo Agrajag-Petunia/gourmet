@@ -1,0 +1,13 @@
+setup.py
+recipespiders/__init__.py
+recipespiders/cache.py
+recipespiders/items.py
+recipespiders/pipelines.py
+recipespiders/settings.py
+recipespiders.egg-info/PKG-INFO
+recipespiders.egg-info/SOURCES.txt
+recipespiders.egg-info/dependency_links.txt
+recipespiders.egg-info/entry_points.txt
+recipespiders.egg-info/top_level.txt
+recipespiders/spiders/__init__.py
+recipespiders/spiders/recipes.py

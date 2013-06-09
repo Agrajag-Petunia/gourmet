@@ -10,21 +10,16 @@ class CachingPipeline(object):
 	session = storage.get_session()
 	
 	name = item['name']
-	ingredients = ''
-	directions = ''
-	
-	for ingredient in item['ingredients']:
-	    ingredients += ingredient
-	
-	for direction in item['directions']:
-	    directions += direction'
+	ingredients = ' '.join(item['ingredients'])
+	directions = ' '.join(item['directions'])
 	
 	recipe = Recipe(name, ingredients, directions)
 	
-	try:
-	    session.add(recipe)
-	    session.commit()
-	except:
-	    session.rollback()
+	#try:
+	session.add(recipe)
+	session.commit()
+	#except:
+	#print "Failed to add recipe to db"
+	#session.rollback()
 	
 	return item
